@@ -1,0 +1,115 @@
+body{
+    background-color: #ffb6c1;
+    color: black;
+    border-style: solid;
+    border-color: white;
+    border-width: 20px;
+}
+
+h1 {
+    font-size: 60px;
+    color: white;
+}
+
+h2 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 40px;
+    color: black;
+    text-align:center;
+}
+
+h3 {
+    font-family: "HelveticaNeue_LT";
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    margin: 0 auto 15px;
+
+}
+
+#para {
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    color: black;
+    font-family: "Comic Sans MS", curive, sans-serif;
+
+}
+
+.full-width-image {
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+}
+
+.intro {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+.nav {
+    -webkit-columns: 100px 3;
+    -moz-columns: 100px 3;
+    columns: 100px 3;
+    -webkit-column-gap: 0;
+    -moz-column-gap:0;
+    column-gap: 0;
+    -webkit-column-rule: 1px solid #1a242f;
+    -moz-column-rule: 1px solid #1a242f;
+    column-rule: 1px solid #1a242f;
+    list-style-type:none;
+}
+.nav a {
+    text-size: 20px;
+    font-family: Ariel, Helvetica, sans-serif;
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 1em;
+    text-align: center;
+    border-bottom: none;
+}
+
+.cupcake {
+    text-align: center;
+    list-style-type: none;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+ul li + li {
+    margin-left: 5%;
+}
+
+table {
+    text-align:center;
+    width: 100%;
+    font-size:20px;
+}
+
+.input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+
+.landmark {
+    text-align: left;
+    font-family:"Comic Sans MS", curive, sans-serif;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+form {
+    width:500px;
+    margin-left: 1200px;
+    margin-right: 0px;
+}

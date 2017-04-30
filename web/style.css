@@ -1,0 +1,70 @@
+body{
+  background-color: #FDF3E7;
+  color: #3B3738;
+  border-style: solid;
+  border-color: #7E8F7C;
+  border-width: 15px;
+}
+
+h1 {
+  font-size: 60px;
+  text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #3B3738;
+
+}
+
+p {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #3B3738;
+}
+
+.mainPara {
+  text-align: center;
+  font-size: 30px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #3B3738;
+}
+
+#para {
+  text-align: center;
+  font-size: 15px;
+  font-style: italic;
+  color: #3B3738;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+#intro {
+  display: block;
+  margin: auto;
+  margin-top: 1cm;
+  width: 40%;
+}
+
+#weddingPara {
+  vertical-align: middle;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #3B3738;
+  text-align: center;
+}
+
+#wedding {
+  margin-left: 1cm;
+  float:left;
+  width: 20%;
+  margin-bottom: 1cm;
+}
+
+#nannyPara {
+  vertical-align: middle;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #3B3738;
+  text-align: center;
+}
+
+#nanny {
+  margin-right: 1cm;
+  float:right;
+  width: 20%;
+  margin-bottom: 1cm;
+}
