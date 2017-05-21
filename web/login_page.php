@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lan="en">
 <head>
@@ -6,7 +10,7 @@
 <body>
   <?php
       echo 'Working 3';
-    if (isset($_GET['submit']))
+    if (isset($_POST['submit']))
     {
       //include("config.php");
       //session_start();
@@ -16,7 +20,7 @@
 
       //$query = "SELECT count(*) FROM login WHERE username='$username' and password='$password'";
       //$nRows = $db->query($query)->fetchColumn();
-      echo "word";
+      echo 'word';
     //  echo $nRows;
 
       /* $stmt = $db->prepare('SELECT * FROM Scriptures WHERE ID=:id');
