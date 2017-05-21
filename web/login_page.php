@@ -16,6 +16,7 @@
 
       $query = "SELECT count(*) FROM login WHERE username='$username' and password='$password'";
       $nRows = $db->query($query)->fetchColumn();
+      echo "word";
       echo $nRows;
 
       /* $stmt = $db->prepare('SELECT * FROM Scriptures WHERE ID=:id');
