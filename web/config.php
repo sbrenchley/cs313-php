@@ -1,7 +1,7 @@
 <?php
   error_reporting(E_ALL);
   ini_set('display_errors', 1);
-  $dbUrl = getenv('HEROKU_POSTGRESQL_DEFAULT_URL');
+  $dbUrl = getenv('DATABASE_URL');
   if (empty($dbUrl)) {
     $dbUrl = "postgres://me:public@localhost:5432/public";
   }
