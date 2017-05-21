@@ -18,7 +18,7 @@ session_start();
       $password=$_POST['password'];
       $_SESSION['login_user']=$username;
 
-      $query = "SELECT count(*) FROM login WHERE username='$username' and password='$password'";
+      $query = "SELECT count(*) FROM users WHERE username='$username' and password='$password'";
       $nRows = $db->query($query)->fetchColumn();
       echo 'word';
       echo $nRows;
