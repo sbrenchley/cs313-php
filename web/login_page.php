@@ -6,7 +6,7 @@
 <body>
   <?php
       echo 'Working 3';
-    if (isset($_POST['submit']))
+    if (isset($_GET['submit']))
     {
       //include("config.php");
       //session_start();
