@@ -51,7 +51,7 @@
     }
   ?>
   <h1>Saved Pages</h1>
-  <form action="login_page.php" method="post">
+  <form action="/login_page.php" method="post">
     <div class="container">
       <label><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="username" required>
