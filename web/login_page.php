@@ -8,16 +8,16 @@
       echo 'Working 3';
     if (isset($_POST['submit']))
     {
-      include("config.php");
-      session_start();
-      $username=$_POST['username'];
-      $password=$_POST['password'];
-      $_SESSION['login_user']=$username;
+      //include("config.php");
+      //session_start();
+      //$username=$_POST['username'];
+      //$password=$_POST['password'];
+      //$_SESSION['login_user']=$username;
 
-      $query = "SELECT count(*) FROM login WHERE username='$username' and password='$password'";
-      $nRows = $db->query($query)->fetchColumn();
+      //$query = "SELECT count(*) FROM login WHERE username='$username' and password='$password'";
+      //$nRows = $db->query($query)->fetchColumn();
       echo "word";
-      echo $nRows;
+    //  echo $nRows;
 
       /* $stmt = $db->prepare('SELECT * FROM Scriptures WHERE ID=:id');
       $stmt->bindValue(':id', $_GET['id'], PDO::PARAM_STR);
