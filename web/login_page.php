@@ -40,18 +40,17 @@ session_start();
           // user logged in
       }
 
+*/
 
-
-      $query = mysql_query("SELECT username FROM login WHERE username='$username' and password='$password'");
-      if (mysql_num_rows($query) != 0)
+      if ($nRows != 0)
       {
-        echo "<script language='javascript' type='text/javascript'> location.href='home.php' </script>";
+        echo "<script language='javascript' type='text/javascript'> location.href='saved_posts.php' </script>";
       }
       else
       {
         echo "<script type='text/javascript'>alert('User Name Or Password Invalid!')</script>";
       }
-      */
+
     }
   ?>
   <h1>Saved Pages</h1>
