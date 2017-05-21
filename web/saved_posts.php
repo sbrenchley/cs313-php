@@ -8,8 +8,8 @@
 </head>
 <body>
   <?php
-  if(isset($_GET['id']))
-    {
+//  if(isset($_GET['id']))
+//    {
       include("config.php");
 
       $stmt = $db->prepare('SELECT * FROM saved_posts WHERE user_id=:id');
@@ -25,7 +25,7 @@
         echo '</div>';
 
       }
-    }
+  //  }
   ?>
   <h1>Saved Posts</h1>
   <div class=savedPosts>
