@@ -7,6 +7,9 @@
   <link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
 <body>
+  <h1>Saved Posts</h1>
+  <div class=savedPosts>
+
   <?php
 //  if(isset($_GET['id']))
 //    {
@@ -19,22 +22,17 @@
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       foreach($rows as $post)
       {
-        print '"' . $post['content'] . '"';
         echo '<div>';
         echo '<h3>' . 'Title: ' . $post['title'] . '</h3>';
+        echo 'Subreddit: ' . $post['subreddit'];
+        echo 'Link: ' . $post['link'];
+        echo 'Votes: ' . $post['votes'];
+        echo 'Date Saved: ' . $post['saved_date'];
         echo '</div>';
 
       }
   //  }
   ?>
-  <h1>Saved Posts</h1>
-  <div class=savedPosts>
-    <ol>
-      <li>sample post 1</li>
-      <li>sample post 2</li>
-      <li>sample post 3</li>
-      <li>sample post 4</li>
-    </ol>
   </div>
   <br/>
   <br/>
