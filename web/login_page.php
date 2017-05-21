@@ -63,7 +63,7 @@ session_start();
       <label><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="password" required>
       <br/>
-      <button type="submit">Login</button>
+      <input type="submit" name="submit" value="submit">
       <br/>
     </div>
   </form>
