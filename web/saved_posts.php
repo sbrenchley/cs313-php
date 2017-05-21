@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lan="en">
 <head>
@@ -5,6 +8,22 @@
 </head>
 <body>
   <?php
+  if(isset($_GET['id']))
+    {
+      $stmt = $db->prepare('SELECT * FROM saved_posts WHERE user_id=:id');
+//      $stmt->bindValue(':id', $_GET['id'], PDO::PARAM_STR);
+      $stmt->bindValue(':id', '1', PDO::PARAM_STR);
+      $stmt->execute();
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      foreach($rows as $post)
+      {
+        print '"' . $post['content'] . '"';
+        echo '<div>';
+        echo '<h3>' . 'Title: ' . $post['title'] . '</h3>';
+        echo '</div>';
+
+      }
+    }
   ?>
   <h1>Saved Posts</h1>
   <div class=savedPosts>
