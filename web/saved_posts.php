@@ -23,11 +23,11 @@
       foreach($rows as $post)
       {
         echo '<div>';
-        echo '<h3>' . 'Title: ' . $post['title'] . '</h3>';
-        echo 'Subreddit: ' . $post['subreddit'];
-        echo 'Link: ' . $post['link'];
-        echo 'Votes: ' . $post['votes'];
-        echo 'Date Saved: ' . $post['saved_date'];
+        echo '<h3>' . 'Title: ' . $post['title'] . '</h3>' . '<br/>';
+        echo 'Subreddit: ' . $post['subreddit'] . '<br/>';
+        echo 'Link: ' . $post['link'] . '<br/>';
+        echo 'Votes: ' . $post['votes'] . '<br/>';
+        echo 'Date Saved: ' . $post['saved_date'] . '<br/>';
         echo '</div>';
 
       }
