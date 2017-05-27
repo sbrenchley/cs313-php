@@ -2,3 +2,4 @@
 session_start();
 session_destroy();
 echo 'You have been logged out. <a href="login_page.php">Go back</a>';
+?>

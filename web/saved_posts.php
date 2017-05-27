@@ -15,6 +15,7 @@
 <body>
   <h1>Saved Posts</h1>
   <div class=savedPosts>
+    <a href="get_posts.php">Click here to get my saved posts</a>
 
   <?php
 //  if(isset($_GET['id']))
