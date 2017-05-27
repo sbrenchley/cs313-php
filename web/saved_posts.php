@@ -3,7 +3,7 @@
   include 'header.php';
   if (!empty($_SESSION['login_user'])) {
     ?>
-    <a href='logout.php'>Click here to log out</a>
+    <a href='logout_page.php'>Click here to log out</a>
     <?php
   }
 ?>
