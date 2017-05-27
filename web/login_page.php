@@ -29,6 +29,7 @@ session_start();
             //logged in
             $_SESSION['login_user']=$username;
             $_SESSION['login_id']=$result->id;
+            $_SESSION['reddit_state']="initial";
             echo "<script language='javascript' type='text/javascript'> location.href='saved_posts.php' </script>";
           }
           else {
