@@ -31,11 +31,17 @@ session_start();
             $_SESSION['login_id']=$result->id;
             echo "<script language='javascript' type='text/javascript'> location.href='saved_posts.php' </script>";
           }
+          else {
+            echo "<script type='text/javascript'>alert('User Name Or Password Invalid!')</script>";
+          }
+        }
+        else {
+          echo "<script type='text/javascript'>alert('User Name Or Password Invalid!')</script>";
         }
       }
       catch (Exception $ex) {
         echo $ex->getMessage();
-        echo "<script type='text/javascript'>alert('User Name Or Password Invalid!')</script>";
+        echo "<script type='text/javascript'>alert('Unable to access the database!')</script>";
       }
 
       //$nRows = $db->query($query)->fetchColumn();
