@@ -18,7 +18,8 @@ session_start();
       $password=$_POST['password'];
 
       try {
-        $query = "SELECT id, password FROM users WHERE username='$username'";
+        $query = $db->prepare("SELECT id, password FROM users WHERE username=:username");
+        $query->bindParam(':username', $username);
         $query->execute();
         $result = $query->fetch(\PDO::FETCH_OBJ);
         if($result !== false) {
