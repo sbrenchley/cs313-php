@@ -9,7 +9,7 @@ session_start();
 </head>
 <body>
   <?php
-      echo 'Working 3';
+      //echo 'Working 3';
     if (isset($_POST['submit']))
     {
       include("config.php");
