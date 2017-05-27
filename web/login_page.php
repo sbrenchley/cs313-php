@@ -16,12 +16,29 @@ session_start();
       //session_start();
       $username=$_POST['username'];
       $password=$_POST['password'];
-      $_SESSION['login_user']=$username;
 
-      $query = "SELECT count(*) FROM users WHERE username='$username' and password='$password'";
-      $nRows = $db->query($query)->fetchColumn();
-      echo 'word';
-      echo $nRows;
+      try {
+        $query = "SELECT id, password FROM users WHERE username='$username'";
+        $query->execute();
+        $result = $query->fetch(\PDO::FETCH_OBJ);
+        if($result !== false) {
+          //check to see if passwords match
+          //TODO make this compare hashes of password instead
+          if($result->password === $password) {
+            //logged in
+            $_SESSION['login_user']=$username;
+            $_SESSION['login_id']=$result->id;
+            echo "<script language='javascript' type='text/javascript'> location.href='saved_posts.php' </script>";
+          }
+        }
+      }
+      catch (Exception $ex) {
+        echo $ex->getMessage();
+        echo "<script type='text/javascript'>alert('User Name Or Password Invalid!')</script>";
+      }
+
+      //$nRows = $db->query($query)->fetchColumn();
+      //echo $nRows;
 
       /* $stmt = $db->prepare('SELECT * FROM Scriptures WHERE ID=:id');
       $stmt->bindValue(':id', $_GET['id'], PDO::PARAM_STR);
@@ -41,7 +58,7 @@ session_start();
       }
 
 */
-
+/*
       if ($nRows != 0)
       {
         echo "<script language='javascript' type='text/javascript'> location.href='saved_posts.php' </script>";
@@ -50,7 +67,7 @@ session_start();
       {
         echo "<script type='text/javascript'>alert('User Name Or Password Invalid!')</script>";
       }
-
+*/
     }
   ?>
   <h1>Saved Pages</h1>

@@ -1,5 +1,4 @@
 <?php
-  session_start();
   include 'header.php';
   if (!empty($_SESSION['login_user'])) {
     ?>
@@ -24,7 +23,7 @@
 
       $stmt = $db->prepare('SELECT * FROM saved_posts WHERE user_id=:id');
 //      $stmt->bindValue(':id', $_GET['id'], PDO::PARAM_STR);
-      $stmt->bindValue(':id', '1', PDO::PARAM_STR);
+      $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
       $stmt->execute();
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       foreach($rows as $post)
