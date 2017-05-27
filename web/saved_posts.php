@@ -1,6 +1,11 @@
 <?php
   session_start();
   include 'header.php';
+  if (!empty($_SESSION['login_user'])) {
+    ?>
+    <a href='logout.php'>Click here to log out</a>
+    <?php
+  }
 ?>
 <!DOCTYPE html>
 <html lan="en">
