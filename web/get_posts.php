@@ -163,10 +163,12 @@ $saved_posts_data = '{"kind": "Listing", "data": {"modhash": "2igxrbasxf3fe40b35
 
 //    var_dump($saved_posts_data);
 
-echo prettyPrint($saved_posts_data);
+//echo prettyPrint($saved_posts_data);
+echo 'begin';
 $json = $json_decode($saved_posts_data);
 
 $posts = $json->data->children;
+echo $posts[0]->data->subreddit;
 foreach ($posts as $post) {
   echo '<p>' . $post->data->title . '<p>';
 }
