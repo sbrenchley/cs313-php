@@ -166,6 +166,7 @@ $saved_posts_data = '{"kind": "Listing", "data": {"modhash": "2igxrbasxf3fe40b35
 //echo prettyPrint($saved_posts_data);
 echo 'begin';
 echo prettyPrint($saved_posts_data);
+
 echo '<br>';
 echo 'wrote out saved posts date';
 echo '<br>';
@@ -182,6 +183,7 @@ echo '<br>';
 echo 'wrote out children data subreddit';
 echo '<br>';
 $json = $json_decode($saved_posts_data, true);
+echo $json->kind;
 echo $json->data->children[1]->data->subreddit;
 echo 'wrote out children data subreddit';
 $posts = $json->data->children;
