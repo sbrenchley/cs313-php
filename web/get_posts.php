@@ -165,7 +165,7 @@ $saved_posts_data = '{"kind": "Listing", "data": {"modhash": "2igxrbasxf3fe40b35
 
 //echo prettyPrint($saved_posts_data);
 echo 'begin';
-echo $saved_posts_data;
+echo prettyPrint($saved_posts_data);
 echo '<br>';
 echo 'wrote out saved posts date';
 echo '<br>';
