@@ -167,19 +167,26 @@ $saved_posts_data = '{"kind": "Listing", "data": {"modhash": "2igxrbasxf3fe40b35
 echo 'begin';
 echo $saved_posts_data;
 echo '<br>';
+echo 'wrote out saved posts date';
 echo '<br>';
 echo $saved_posts_data->data;
+echo '<br>';
+echo 'wrote out savedpostsdata->data';
+echo '<br>';
 var_dump($saved_posts_data->data);
 echo '<br>';
+echo 'var dump saved posts data data';
 echo '<br>';
 echo $saved_posts_data->data->children[1]->data->subreddit;
 echo '<br>';
+echo 'wrote out children data subreddit';
 echo '<br>';
 $json = $json_decode($saved_posts_data, true);
 echo $json->data->children[1]->data->subreddit;
-
+echo 'wrote out children data subreddit';
 $posts = $json->data->children;
 echo $posts[0]->data->subreddit;
+echo 'wrote out data subreddit';
 foreach ($posts as $post) {
   echo '<p>' . $post->data->title . '<p>';
 }
