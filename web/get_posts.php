@@ -174,7 +174,7 @@ $example_data = '{
         { "id": "5006", "type": "Chocolate with Sprinkles" },
         { "id": "5004", "type": "Maple" }
     ]
-}'
+}';
 
 $data = json_decode($example_data);
 echo $data->type;
