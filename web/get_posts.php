@@ -165,6 +165,20 @@ $saved_posts_data = '{"kind": "Listing", "data": {"modhash": "2igxrbasxf3fe40b35
 
 //echo prettyPrint($saved_posts_data);
 echo 'begin';
+
+$example_data = '{
+    "type": "donut",
+    "name": "Cake",
+    "toppings": [
+        { "id": "5002", "type": "Glazed" },
+        { "id": "5006", "type": "Chocolate with Sprinkles" },
+        { "id": "5004", "type": "Maple" }
+    ]
+}'
+
+$data = json_decode($example_data);
+echo $data->type;
+
 echo prettyPrint($saved_posts_data);
 
 echo '<br>';
@@ -182,7 +196,7 @@ echo $saved_posts_data->data->children[1]->data->subreddit;
 echo '<br>';
 echo 'wrote out children data subreddit';
 echo '<br>';
-$json = $json_decode($saved_posts_data, true);
+$json = $json_decode($saved_posts_data);
 echo $json->kind;
 echo $json->data->children[1]->data->subreddit;
 echo 'wrote out children data subreddit';
