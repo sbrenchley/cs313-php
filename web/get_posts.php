@@ -166,9 +166,7 @@ $saved_posts_data = '{"kind": "Listing", "data": {"modhash": "2igxrbasxf3fe40b35
 //echo prettyPrint($saved_posts_data);
 echo 'begin';
 echo $saved_posts_data;
-echo '<p/>';
 echo $saved_posts_data->data;
-echo '<p/>'
 var_dump($saved_posts_data->data);
 
 echo $saved_posts_data->data->children[1]->data->subreddit;
