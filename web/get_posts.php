@@ -197,7 +197,7 @@ echo '<br>';
 echo 'wrote out children data subreddit';
 echo '<br>';
 $json = $json_decode($saved_posts_data);
-echo $json->kind;
+echo $json->data;
 echo $json->data->children[1]->data->subreddit;
 echo 'wrote out children data subreddit';
 $posts = $json->data->children;
