@@ -166,22 +166,12 @@ $saved_posts_data = '{"kind": "Listing", "data": {"modhash": "2igxrbasxf3fe40b35
 //echo prettyPrint($saved_posts_data);
 echo 'begin';
 
-$example_data = '{
-    "type": "donut",
-    "name": "Cake",
-    "toppings": [
-        { "id": "5002", "type": "Glazed" },
-        { "id": "5006", "type": "Chocolate with Sprinkles" },
-        { "id": "5004", "type": "Maple" }
-    ]
-}';
-
 $dec = json_decode($saved_posts_data);
 echo $dec->kind;
+$posts = $dec->data->children;
 
-/*
 foreach ($posts as $post) {
   echo '<p>' . $post->data->title . '<p>';
 }
-*/
+
  ?>
