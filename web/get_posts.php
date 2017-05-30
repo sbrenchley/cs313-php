@@ -81,7 +81,8 @@
     $options = array(
       'http' => array(
         'header'  => "Authorization: bearer " . $_SESSION['reddit_token'] . "\r\n" .
-                     "Accept: application/json\r\n",
+                     "Accept: application/json\r\n" .
+                     "User-Agent: linux:CXR7MyVIXCoN7A:v1.0.0 (by /u/sbrenchley)\r\n",
         'method'  => 'GET'
       )
     );
