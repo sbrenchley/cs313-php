@@ -52,13 +52,14 @@
           $result_data = json_decode($result);
           $_SESSION['reddit_token'] = $result_data->access_token;
           $_SESSION['reddit_state'] = "have_token";
+          echo "logged in";
         }
         var_dump($result);
       }
     }
   }
 
-  if ($_SESSION['reddit_state'] === "have_token") {
+/*  if ($_SESSION['reddit_state'] === "have_token") {
     //TODO hard-coding this for now. need to request it via reddit api
     $_SESSION['reddit_user'] = 'sbrenchley';
 
@@ -93,6 +94,7 @@
     }
     var_dump($result);
   }
+  */
 ?>
 
 
