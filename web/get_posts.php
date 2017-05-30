@@ -71,7 +71,7 @@
     //TODO hard-coding this for now. need to request it via reddit api
     $_SESSION['reddit_user'] = 'sbrenchley';
 
-
+    debug($_SESSION['reddit_token']);
 
     //request the user's saved posts
     $url = "https://oauth.reddit.com/api/v1/user/" . $_SESSION['reddit_user'] . "/saved";
