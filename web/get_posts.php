@@ -137,6 +137,7 @@
           $stmt->execute();
         }
       }
+      echo "<script language='javascript' type='text/javascript'> location.href='saved_posts.php' </script>";
     }
   }
 ?>
