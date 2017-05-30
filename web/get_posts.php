@@ -120,6 +120,8 @@
         var_dump($rows);
         //if it isn't, save it
         if($rows === FALSE) {
+          echo "here";
+          echo $post->data->title;
           $stmt = $db->prepare('INSERT INTO saved_posts (title, saved_date, subreddit, votes, link, user_id) VALUES (:title, :saved_date, :subreddit, :score, :permalink, :id)');
           $stmt->bindValue(':title', $post->data->title, PDO::PARAM_STR);
           $stmt->bindValue(':saved_date', $post->data->created_utc, PDO::PARAM_STR);
@@ -128,7 +130,6 @@
           $stmt->bindValue(':link', $post->data->permalink, PDO::PARAM_STR);
           $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
           $stmt->execute();
-          $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
       }
     }
