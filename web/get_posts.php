@@ -125,7 +125,8 @@
       //    $stmt = $db->prepare('INSERT INTO saved_posts (title, saved_date, subreddit, votes, link, user_id) VALUES (:title, :saved_date, :subreddit, :score, :permalink, :id)');
 
           $stmt = $db->prepare('INSERT INTO saved_posts (title, saved_date, subreddit, votes, link, user_id) VALUES ("' . $post->data->title . '", ' . $post->data->created_utc . ', "' . $post->data->subreddit . '", ' . $post->data->score . ', "' . $post->data->permalink . '", ' . $_SESSION['login_id'] . ')');
-          echo $stmt;
+          echo 'INSERT INTO saved_posts (title, saved_date, subreddit, votes, link, user_id) VALUES ("' . $post->data->title . '", ' . $post->data->created_utc . ', "' . $post->data->subreddit . '", ' . $post->data->score . ', "' . $post->data->permalink . '", ' . $_SESSION['login_id'] . ')';
+;
 /*
           $stmt->bindValue(':title', $post->data->title, PDO::PARAM_STR);
           $stmt->bindValue(':saved_date', $post->data->created_utc, PDO::PARAM_STR);
