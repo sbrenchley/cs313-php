@@ -4,7 +4,7 @@
   //send the user to reddit to obtain permission to access their saved posts
   if($_SESSION['reddit_state'] === "initial") {
     $_SESSION['reddit_state'] = "attempt_to_authorize";
-    header('Location: https://www.reddit.com/api/v1/authorize?client_id=CXR7MyVIXCoN7A&response_type=code&state=suzanne&redirect_uri=https://ancient-wave-30284.herokuapp.com/get_posts.php&duration=temporary&scope=history')
+    header('Location: https://www.reddit.com/api/v1/authorize?client_id=CXR7MyVIXCoN7A&response_type=code&state=suzanne&redirect_uri=https://ancient-wave-30284.herokuapp.com/get_posts.php&duration=temporary&scope=history');
   }
   //handle the response from reddit
   else if($_SESSION['reddit_state'] === "attempt_to_authorize") {
