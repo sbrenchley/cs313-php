@@ -116,7 +116,7 @@
         $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
         $stmt->bindValue(':link', $post->data->permalink, PDO::PARAM_STR);
         $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $rows = $stmt->fetch(PDO::FETCH_OBJ);
         var_dump($rows);
         //if it isn't, save it
         if($rows === FALSE) {
