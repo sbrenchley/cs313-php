@@ -8,7 +8,7 @@ if (empty($_SESSION['login_user'])) {
 }
 
 function debug($message) {
-  echo '<script type="text/javascript">console.log(' . $message . ')</script>';
+  echo '<script type="text/javascript">console.log("' . $message . '")</script>';
 }
 
 ?>
