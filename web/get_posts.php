@@ -39,11 +39,18 @@
             'content' => http_build_query($data)
           )
         );
+
+        debug("streaming_context");
+
         $context  = stream_context_create($options);
         $result = file_get_contents($url, false, $context);
+
         if ($result === FALSE) {
           //something went wrong
           $_SESSION['reddit_state'] = "initial";
+
+          debug("about to redirect because result is FALSE");
+
           echo "<script language='javascript' type='text/javascript'> location.href='saved_posts.php' </script>";
         }
         //everything went right

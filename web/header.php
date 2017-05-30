@@ -7,6 +7,10 @@ if (empty($_SESSION['login_user'])) {
     exit;
 }
 
+function debug(message) {
+  echo '<script type="text/javascript">console.log(' . message . ')</script>';
+}
+
 ?>
 
 
