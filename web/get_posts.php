@@ -34,7 +34,8 @@
         // use key 'http' even if you send the request to https://...
         $options = array(
           'http' => array(
-            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'header'  => "Authorization: Basic " . base64_encode("CXR7MyVIXCoN7A:1LxMZh0Ff2rHqwQdhoMPzlCgAr8") . "\r\n" .
+                         "Content-type: application/x-www-form-urlencoded\r\n",
             'method'  => 'POST',
             'content' => http_build_query($data)
           )
