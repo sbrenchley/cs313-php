@@ -74,7 +74,7 @@
     debug($_SESSION['reddit_token']);
 
     //request the user's saved posts
-    $url = "https://oauth.reddit.com/api/v1/user/" . $_SESSION['reddit_user'] . "/saved";
+    $url = "https://oauth.reddit.com/user/" . $_SESSION['reddit_user'] . "/saved";
     // $data = array('grant_type' => 'authorization_code', 'code' => $_GET['code'], 'redirect_uri' => 'https://ancient-wave-30284.herokuapp.com/get_posts.php');
 
     // use key 'http' even if you send the request to https://...
