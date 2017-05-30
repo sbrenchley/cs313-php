@@ -117,7 +117,7 @@
         $stmt->bindValue(':link', $post->data->permalink, PDO::PARAM_STR);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+        var_dump($rows);
         //if it isn't, save it
         if($rows === FALSE) {
           $stmt = $db->prepare('INSERT INTO saved_posts (title, saved_date, subreddit, votes, link, user_id) VALUES (:title, :saved_date, :subreddit, :score, :permalink, :id)');
