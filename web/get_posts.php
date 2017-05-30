@@ -100,13 +100,38 @@
     }
     //everything went right
     else {
-      debug("posts call debug so chill");
+      //we finally have the data, let's save it to the database
+      debug("we have the saved posts json");
+
       //put data into php array
-      // $result_data = json_decode($result);
-      // $_SESSION['reddit_token'] = $result_data->access_token;
-      // $_SESSION['reddit_state'] = "have_token";
+
+      include("config.php");
+
+      $dec = json_decode($result);
+      $posts = $dec->data->children;
+
+      foreach ($posts as $post) {
+        //checked to see if the post is already in the database
+        $stmt = $db->prepare('SELECT * FROM saved_posts WHERE user_id=:id AND link=:link');
+        $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
+        $stmt->bindValue(':link', $post->data->permalink, PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        //if it isn't, save it
+        if($rows === FALSE) {
+          $stmt = $db->prepare('INSERT INTO saved_posts (title, saved_date, subreddit, votes, link, user_id) VALUES (:title, :saved_date, :subreddit, :score, :permalink, :id)');
+          $stmt->bindValue(':title', $post->data->title, PDO::PARAM_STR);
+          $stmt->bindValue(':saved_date', $post->data->created_utc, PDO::PARAM_STR);
+          $stmt->bindValue(':subreddit', $post->data->subreddit, PDO::PARAM_STR);
+          $stmt->bindValue(':votes', $post->data->score, PDO::PARAM_STR);
+          $stmt->bindValue(':link', $post->data->permalink, PDO::PARAM_STR);
+          $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
+          $stmt->execute();
+          $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+      }
     }
-    var_dump($result);
   }
 ?>
 
