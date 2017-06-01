@@ -45,6 +45,8 @@
   <br/>
   <p>Filter by Subreddit</p>
   <select>
+    <option value="all" selected>All</option>
+
     <?php
       $stmt = $db->prepare('SELECT subreddit FROM saved_posts WHERE user_id=:id');
       $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
@@ -52,11 +54,9 @@
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       foreach($rows as $post)
       {
-        echo '<option value="' . $post['subreddit'] . '">' . '</option>';
+        echo '<option value="' . $post['subreddit'] . '">' . $post['subreddit'] . '</option>';
       }
     ?>
-    <option value="all">All</option>
-    <option value="test">Test data</option>
   </select>
   <input type="text" class="searchTerm" placeholder="Key Words">
   <button type="submit">Go</button>
