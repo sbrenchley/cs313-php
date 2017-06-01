@@ -44,27 +44,30 @@
   <br/>
   <br/>
   <p>Filter by Subreddit</p>
-  <select>
-    <option value="all" selected>All</option>
-
-    <?php
-      $stmt = $db->prepare('SELECT DISTINCT(subreddit) FROM saved_posts WHERE user_id=:id ORDER BY subreddit');
-      $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
-      $stmt->execute();
-      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      foreach($rows as $post)
-      {
-        echo '<option value="' . $post['subreddit'] . '">' . $post['subreddit'] . '</option>';
-      }
-    ?>
-  </select>
-  <input type="text" class="searchTerm" placeholder="Key Words">
-  <button type="submit">Go</button>
+  <form action="/saved_posts.php" method="get">
+    <div class="container">
+      <select name='subreddit_filter'>
+        <option value="all" selected>All</option>
+        <?php
+          $stmt = $db->prepare('SELECT DISTINCT(subreddit) FROM saved_posts WHERE user_id=:id ORDER BY subreddit');
+          $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
+          $stmt->execute();
+          $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+          foreach($rows as $post)
+          {
+            echo '<option value="' . $post['subreddit'] . '">' . $post['subreddit'] . '</option>';
+          }
+        ?>
+      </select>
+      <input type="text" class="searchTerm" placeholder="Key Words">
+      <button type="submit">Go</button>
+    </div>
+  </form>
   <br/>
   <br/>
   <br/>
   <div class="search">
-    <input type="text" class="searchTerm" placeholder="Search by title">
+    <input type="text" class="searchTerm" placeholder="Key Words">
     <button type="submit">Go</button>
   </div>
   <br/>
