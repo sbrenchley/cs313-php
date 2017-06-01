@@ -48,7 +48,7 @@
     <option value="all" selected>All</option>
 
     <?php
-      $stmt = $db->prepare('SELECT subreddit FROM saved_posts WHERE user_id=:id');
+      $stmt = $db->prepare('SELECT DISTINCT(subreddit) FROM saved_posts WHERE user_id=:id ORDER BY subreddit');
       $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
       $stmt->execute();
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
