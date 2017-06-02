@@ -24,7 +24,11 @@
       $subreddit_filter = isset($_GET['subreddit_filter']) ? $_GET['subreddit_filter'] : null;
       $key_words = isset($_GET['key_words']) ? $_GET['key_words'] : null;
 
+      debug("subreddit_filter: $subreddit_filter");
+      debug("key_words: $key_words");
+
       if ($subreddit_filter == 'ALL' && !$key_words) {
+        debug("1");
         $stmt = $db->prepare('SELECT * FROM saved_posts WHERE user_id=:id');
         $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
         $stmt->execute();
@@ -32,6 +36,7 @@
       }
 
       else if ($subreddit_filter != 'ALL' && $key_words) {
+        debug("2");
         $stmt = $db->prepare("SELECT * FROM saved_posts WHERE user_id=:id AND subreddit=:subreddit_filter AND title LIKE '%:key_words%'");
         $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
         $stmt->bindValue(':subreddit_filter', $subreddit_filter, PDO::PARAM_STR);
@@ -41,6 +46,7 @@
       }
 
       else if ($subreddit_filter == 'ALL' && $key_words) {
+        debug("3");
         $stmt = $db->prepare("SELECT * FROM saved_posts WHERE user_id=:id AND title LIKE '%:key_words%'");
         $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
         $stmt->bindValue(':key_words', $_GET['key_words'], PDO::PARAM_STR);
@@ -48,6 +54,7 @@
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       }
       else {
+        debug("4");
         $stmt = $db->prepare("SELECT * FROM saved_posts WHERE user_id=:id AND subreddit=:subreddit_filter");
         $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
         $stmt->bindValue(':subreddit_filter', $subreddit_filter, PDO::PARAM_STR);
