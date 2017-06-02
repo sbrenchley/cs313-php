@@ -21,8 +21,4 @@
 //     print "<p>error: $ex->getMessage() </p>\n\n";
      die();
    }
-
-   function debug($message) {
-     echo '<script type="text/javascript">console.log("' . $message . '")</script>';
-   }
 ?>
