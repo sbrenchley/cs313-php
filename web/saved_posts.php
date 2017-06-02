@@ -36,7 +36,7 @@
       }
 
       if ($key_words) {
-        $query = $query . " AND title LIKE '%:key_words%'";
+        $query = $query . " AND title LIKE :key_words";
       }
 
       debug("query: $query");
@@ -46,7 +46,7 @@
       if ($subreddit_filter) {
         $stmt->bindValue(':subreddit_filter', $subreddit_filter, PDO::PARAM_STR);
       }
-      if ($key_words) { $stmt->bindValue(':key_words', $key_words, PDO::PARAM_STR); }
+      if ($key_words) { $stmt->bindValue(':key_words', "%$key_words%", PDO::PARAM_STR); }
 
       $stmt->execute();
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
