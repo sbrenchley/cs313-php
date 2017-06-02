@@ -69,6 +69,7 @@
       <div class="container">
         <label><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="username" required>
+        <em>(This should match your Reddit username!)</em>
 
         <br />
         <label><b>Password</b></label>
