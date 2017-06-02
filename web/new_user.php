@@ -32,7 +32,7 @@
 
         }
         else {
-          $usernameError = "'$username' is already taken"
+          $usernameError = "'$username' is already taken";
         }
       }
     ?>
