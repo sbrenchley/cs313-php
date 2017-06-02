@@ -40,7 +40,7 @@
       }
 
       debug("query: $query");
-      $stmt = $db->prepare($query)
+      $stmt = $db->prepare($query);
 
       $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
       if ($subreddit_filter) {
