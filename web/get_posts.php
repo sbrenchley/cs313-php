@@ -68,8 +68,8 @@
   }
 
   if ($_SESSION['reddit_state'] === "have_token") {
-    //TODO hard-coding this for now. need to request it via reddit api
-    $_SESSION['reddit_user'] = 'sbrenchley';
+    // TODO right now we're using our site's username, could we do something better?
+    $_SESSION['reddit_user'] = "$_SESSION['login_user']";
 
     debug($_SESSION['reddit_token']);
 

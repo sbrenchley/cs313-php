@@ -9,18 +9,8 @@ session_start();
 </head>
 <body>
   <?php
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
-    
     if (isset($_POST['submit'])) {
       include("config.php");
-
-      function debug($message) {
-        echo '<script type="text/javascript">console.log("' . $message . '")</script>';
-      }
-
-      debug("in here");
 
       $username = $_POST['username'];
       $password = $_POST['password'];
