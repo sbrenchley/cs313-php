@@ -42,7 +42,9 @@
               '<input type="submit" name="submit" value="submit">',
             '</form>',
 
-            '<script type="text/javascript">document.getElementById("post_back_to_login").submit();</script>'
+            '<script type="text/javascript">',
+              'HTMLFormElement.prototype.submit.call(document.getElementById("post_back_to_login"));',
+            '</script>'
           );
 
           echo join("", $html);
