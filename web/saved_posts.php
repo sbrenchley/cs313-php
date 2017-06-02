@@ -61,7 +61,7 @@
         echo '<div>';
         echo '<h3>' . 'Title: ' . $post['title'] . '</h3>' . '<br/>';
         echo 'Subreddit: ' . $post['subreddit'] . '<br/>';
-        echo 'Link: ' . $post['link'] . '<br/>';
+        echo 'Link: <a href="https://www.reddit.com' . $post['link'] . '">' . $post['link'] . '</a><br/>';
         echo 'Votes: ' . $post['votes'] . '<br/>';
         echo 'Date Saved: ' . $post['saved_date'] . '<br/>';
         echo '</div>';
