@@ -9,20 +9,25 @@ session_start();
 </head>
 <body>
   <?php
-      //echo 'Working 3';
-    if (isset($_POST['submit']))
-    {
+    if (isset($_POST['submit'])) {
       include("config.php");
-      //session_start();
-      $username=$_POST['username'];
-      $password=$_POST['password'];
+
+      function debug($message) {
+        echo '<script type="text/javascript">console.log("' . $message . '")</script>';
+      }
+
+      debug("in here");
+
+      $username = $_POST['username'];
+      $password = $_POST['password'];
 
       try {
         $query = $db->prepare("SELECT id, password FROM users WHERE username=:username");
         $query->bindParam(':username', $username);
         $query->execute();
         $result = $query->fetch(\PDO::FETCH_OBJ);
-        if($result !== false) {
+
+        if ($result !== false) {
           //check to see if passwords match
           //TODO make this compare hashes of password instead
           if($result->password === $password) {
@@ -44,41 +49,11 @@ session_start();
         echo $ex->getMessage();
         echo "<script type='text/javascript'>alert('Unable to access the database!')</script>";
       }
-
-      //$nRows = $db->query($query)->fetchColumn();
-      //echo $nRows;
-
-      /* $stmt = $db->prepare('SELECT * FROM Scriptures WHERE ID=:id');
-      $stmt->bindValue(':id', $_GET['id'], PDO::PARAM_STR);
-      $stmt->execute();
-      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      foreach($rows as $scrip)
-      {
-        print '"' . $scrip['content'] . '"';
-      }
-      */
-
-      /*
-      if(pg_num_rows($result) != 1) {
-          // do error stuff
-      } else {
-          // user logged in
-      }
-
-*/
-/*
-      if ($nRows != 0)
-      {
-        echo "<script language='javascript' type='text/javascript'> location.href='saved_posts.php' </script>";
-      }
-      else
-      {
-        echo "<script type='text/javascript'>alert('User Name Or Password Invalid!')</script>";
-      }
-*/
     }
   ?>
+
   <h1>Saved Pages</h1>
+
   <form action="/login_page.php" method="post">
     <div class="container">
       <label><b>Username</b></label>
