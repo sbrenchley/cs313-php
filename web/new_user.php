@@ -14,7 +14,7 @@
           echo '<script type="text/javascript">console.log("' . $message . '")</script>';
         }
 
-        function isUsernameValid($username) {
+        function isUsernameValid($db, $username) {
           $query = $db->prepare("SELECT 1 FROM users WHERE username = :username");
           $query->bindParam(':username', $username);
           $query->execute();
@@ -26,7 +26,7 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        debug(isUsernameValid($username) ? "valid" : "not");
+        debug(isUsernameValid($db, $username) ? "valid" : "not");
       }
     ?>
 
