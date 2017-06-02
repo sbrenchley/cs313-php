@@ -24,7 +24,7 @@
       $key_words = isset($_GET['key_words']) ? $_GET['key_words'] : null;
 
       // treat "ALL" as an empty value as well
-      $subreddit_filter = (!$subreddit_filter || $subreddit_filter == "ALL") ? null : $subreddit_filter;
+      $subreddit_filter = (!$subreddit_filter || $subreddit_filter == "all") ? null : $subreddit_filter;
 
       debug("subreddit_filter: $subreddit_filter");
       debug("key_words: $key_words");
@@ -32,7 +32,7 @@
       $query = "SELECT * FROM saved_posts WHERE user_id = :id";
 
       if ($subreddit_filter) {
-        $query = $query . " AND subrredit = :subreddit_filter";
+        $query = $query . " AND subreddit = :subreddit_filter";
       }
 
       if ($key_words) {
