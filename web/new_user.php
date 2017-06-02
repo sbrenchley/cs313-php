@@ -27,10 +27,25 @@
         $password = $_POST['password'];
 
         debug(isUsernameValid($db, $username) ? "valid" : "not");
+
+        if (isUsernameValid($db, $username)) {
+
+        }
+        else {
+          $usernameError = "'$username' is already taken"
+        }
       }
     ?>
 
     <h1>Saved Pages</h1>
+
+    <?php
+      if (isset($usernameError)) {
+        echo '<div style="color: #f44336;">';
+        echo   $usernameError
+        echo '</div>';
+      }
+    ?>
 
     <form action="/new_user.php" method="post">
       <div class="container">
