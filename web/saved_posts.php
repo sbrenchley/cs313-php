@@ -49,6 +49,7 @@
       if ($key_words) { $stmt->bindValue(':key_words', "%$key_words%", PDO::PARAM_STR); }
 
       $stmt->execute();
+      debug($stmt->fullQuery);
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       // $stmt = $db->prepare('SELECT * FROM saved_posts WHERE user_id=:id');
