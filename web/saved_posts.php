@@ -21,11 +21,41 @@
 //    {
       include("config.php");
 
-      $stmt = $db->prepare('SELECT * FROM saved_posts WHERE user_id=:id');
-//      $stmt->bindValue(':id', $_GET['id'], PDO::PARAM_STR);
-      $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
-      $stmt->execute();
-      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      if ($_GET['subreddit_filter'] == 'ALL' && !$_GET['key_words']) {
+        $stmt = $db->prepare('SELECT * FROM saved_posts WHERE user_id=:id');
+        $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      }
+
+      else if ($_GET['subreddit_filter'] != 'ALL' && $_GET['key_words']) {
+        $stmt = $db->prepare("SELECT * FROM saved_posts WHERE user_id=:id AND subreddit=:subreddit_filter AND title LIKE '%:key_words%'");
+        $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
+        $stmt->bindValue(':subreddit_filter', $_GET['subreddit_filter'], PDO::PARAM_STR);
+        $stmt->bindValue(':key_words', $_GET['key_words'], PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      }
+
+      else if ($_GET['subreddit_filter'] == 'ALL' && $_GET['key_words']) {
+        $stmt = $db->prepare("SELECT * FROM saved_posts WHERE user_id=:id AND title LIKE '%:key_words%'");
+        $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
+        $stmt->bindValue(':key_words', $_GET['key_words'], PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      }
+      else {
+        $stmt = $db->prepare("SELECT * FROM saved_posts WHERE user_id=:id AND subreddit=:subreddit_filter");
+        $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
+        $stmt->bindValue(':subreddit_filter', $_GET['subreddit_filter'], PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      }
+
+      // $stmt = $db->prepare('SELECT * FROM saved_posts WHERE user_id=:id');
+      // $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
+      // $stmt->execute();
+      // $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       foreach($rows as $post)
       {
         echo '<div>';
@@ -59,18 +89,11 @@
           }
         ?>
       </select>
-      <input type="text" class="searchTerm" placeholder="Key Words">
+
+      <input type="text" name="key_words" class="searchTerm" placeholder="Key Words">
+
       <button type="submit">Go</button>
     </div>
   </form>
-  <br/>
-  <br/>
-  <br/>
-  <div class="search">
-    <input type="text" class="searchTerm" placeholder="Key Words">
-    <button type="submit">Go</button>
-  </div>
-  <br/>
-  <br/>
 </body>
 </html>
