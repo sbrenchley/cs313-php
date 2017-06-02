@@ -21,23 +21,26 @@
 //    {
       include("config.php");
 
-      if ($_GET['subreddit_filter'] == 'ALL' && !$_GET['key_words']) {
+      $subreddit_filter = isset($_GET['subreddit_filter']) ? $_GET['subreddit_filter'] : null;
+      $key_words = isset($_GET['key_words']) ? $_GET['key_words'] : null;
+
+      if ($subreddit_filter == 'ALL' && !$key_words) {
         $stmt = $db->prepare('SELECT * FROM saved_posts WHERE user_id=:id');
         $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       }
 
-      else if ($_GET['subreddit_filter'] != 'ALL' && $_GET['key_words']) {
+      else if ($subreddit_filter != 'ALL' && $key_words) {
         $stmt = $db->prepare("SELECT * FROM saved_posts WHERE user_id=:id AND subreddit=:subreddit_filter AND title LIKE '%:key_words%'");
         $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
-        $stmt->bindValue(':subreddit_filter', $_GET['subreddit_filter'], PDO::PARAM_STR);
-        $stmt->bindValue(':key_words', $_GET['key_words'], PDO::PARAM_STR);
+        $stmt->bindValue(':subreddit_filter', $subreddit_filter, PDO::PARAM_STR);
+        $stmt->bindValue(':key_words', $key_words, PDO::PARAM_STR);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       }
 
-      else if ($_GET['subreddit_filter'] == 'ALL' && $_GET['key_words']) {
+      else if ($subreddit_filter == 'ALL' && $key_words) {
         $stmt = $db->prepare("SELECT * FROM saved_posts WHERE user_id=:id AND title LIKE '%:key_words%'");
         $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
         $stmt->bindValue(':key_words', $_GET['key_words'], PDO::PARAM_STR);
@@ -47,7 +50,7 @@
       else {
         $stmt = $db->prepare("SELECT * FROM saved_posts WHERE user_id=:id AND subreddit=:subreddit_filter");
         $stmt->bindValue(':id', $_SESSION['login_id'], PDO::PARAM_STR);
-        $stmt->bindValue(':subreddit_filter', $_GET['subreddit_filter'], PDO::PARAM_STR);
+        $stmt->bindValue(':subreddit_filter', $subreddit_filter, PDO::PARAM_STR);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       }
