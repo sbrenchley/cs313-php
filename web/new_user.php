@@ -9,7 +9,10 @@
     <?php
       if (isset($_POST['submit'])) {
         include("config.php");
-        include("header.php");
+
+        function debug($message) {
+          echo '<script type="text/javascript">console.log("' . $message . '")</script>';
+        }
 
         function isUsernameValid($username) {
           $query = $db->prepare("SELECT 1 FROM users WHERE username = :username");
