@@ -89,6 +89,9 @@ session_start();
       <br/>
       <input type="submit" name="submit" value="submit">
       <br/>
+
+      <br />
+      <a href="/new_user.php">Don't have an account? Sign up!</a>
     </div>
   </form>
 </body>
