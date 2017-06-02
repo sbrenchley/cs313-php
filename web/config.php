@@ -1,4 +1,6 @@
 <?php
+  include 'EPODStatement.php';
+
   error_reporting(E_ALL);
   ini_set('display_errors', 1);
   $dbUrl = getenv('DATABASE_URL');
@@ -15,6 +17,7 @@
 
    try {
      $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+     $db->setAttribute(PDO::ATTR_STATEMENT_CLASS, array("EPDOStatement\EPDOStatement", array($db)));
    }
    catch (Exception $ex) {
      echo $ex->getMessage();
