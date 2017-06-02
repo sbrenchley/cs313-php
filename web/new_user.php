@@ -42,7 +42,7 @@
     <?php
       if (isset($usernameError)) {
         echo '<div style="color: #f44336;">';
-        echo   $usernameError
+        echo   $usernameError;
         echo '</div>';
       }
     ?>
