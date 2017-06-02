@@ -69,7 +69,7 @@
 
   if ($_SESSION['reddit_state'] === "have_token") {
     // TODO right now we're using our site's username, could we do something better?
-    $_SESSION['reddit_user'] = "$_SESSION['login_user']";
+    $_SESSION['reddit_user'] = "" . $_SESSION['login_user'];
 
     debug($_SESSION['reddit_token']);
 
