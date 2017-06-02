@@ -4,6 +4,7 @@ body{
   border-style: solid;
   border-color: #7E8F7C;
   border-width: 15px;
+  padding: 5px;
 }
 
 h1 {
@@ -17,6 +18,7 @@ h1 {
 p {
   font-family: "Comic Sans MS", cursive, sans-serif;
   color: #3B3738;
+  padding: 5px;
 }
 
 #disappear {
@@ -28,6 +30,7 @@ p {
   font-size: 30px;
   font-family: "Comic Sans MS", cursive, sans-serif;
   color: #3B3738;
+  padding: 5px;
 }
 
 #para {
@@ -35,6 +38,7 @@ p {
   font-size: 30px;
   color: #3B3738;
   font-family: "Comic Sans MS", cursive, sans-serif;
+  padding: 5px;
 }
 
 .container > div {
@@ -45,4 +49,5 @@ p {
   width: 33%;
   text-align: center;
   font-family: "Comic Sans MS", cursive, sans-serif;
+  padding: 5px;
 }
