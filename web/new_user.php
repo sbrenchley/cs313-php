@@ -43,7 +43,7 @@
             '<form id="post_back_to_login" action="/login_page.php" method="post" style="display: none;">',
               '<input type="text" name="username" value="' . $username . '">',
               '<input type="password" name="password" value="' . $password . '">',
-              '<input type="submit" name="submit" value="submit">',
+              '<input type="text" name="submit" value="submit">',
             '</form>',
 
             '<script type="text/javascript">',
