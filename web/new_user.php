@@ -29,7 +29,23 @@
         debug(isUsernameValid($db, $username) ? "valid" : "not");
 
         if (isUsernameValid($db, $username)) {
+          $query = $db->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
+          $query->bindParam(':username', $username);
+          $query->bindParam(':password', $password);
+          $query->execute();
 
+          // hack to log the new user in: render a hidden form with new values and submit it
+          $html = array(
+            '<form id="post_back_to_login" action="/login_page.php" method="post" style="display: none;">',
+              '<input type="text" name="username" value="' . $username . '">',
+              '<input type="password" name="password" value="' . $password . '">',
+              '<input type="submit" name="submit" value="submit">',
+            '</form>',
+
+            '<script type="text/javascript">document.getElementById("post_back_to_login").submit();</script>'
+          );
+
+          echo join("", $html);
         }
         else {
           $usernameError = "'$username' is already taken";
