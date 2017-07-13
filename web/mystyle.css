@@ -1,6 +1,6 @@
 body{
   background-color: ##FFFFFF;
-  color: #3B3738;
+  color: #d60035;
   border-style: solid;
   border-color: #87CEFA;
   border-width: 15px;
@@ -11,13 +11,13 @@ h1 {
   font-size: 60px;
   text-align: center;
   font-family: "Comic Sans MS", cursive, sans-serif;
-  color: #3B3738;
+  color: #d60035;
 
 }
 
 p {
   font-family: "Comic Sans MS", cursive, sans-serif;
-  color: #3B3738;
+  color: #d60035;
   padding: 5px;
 }
 
@@ -29,14 +29,14 @@ p {
   text-align: center;
   font-size: 30px;
   font-family: "Comic Sans MS", cursive, sans-serif;
-  color: #3B3738;
+  color: #d60035;
   padding: 5px;
 }
 
 #para {
   text-align: center;
   font-size: 30px;
-  color: #3B3738;
+  color: #d60035;
   font-family: "Comic Sans MS", cursive, sans-serif;
   padding: 5px;
 }
